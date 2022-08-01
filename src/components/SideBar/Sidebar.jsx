@@ -3,14 +3,16 @@ import { NavLink, Link } from 'react-router-dom';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import {SiShopware} from 'react-icons/si';
 import { MdOutlineCancel } from 'react-icons/md';
+import { useStateContext } from '../../contexts/ContextProvide';
 
 import { links } from '../../data/dummy';
 
 const Sidebar = () => {
 
-  const activeMenu = true;
+  const {activeMenu, setActiveMenu} = useStateContext();
 
-  const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md m-2'
+
+  const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white bg-light-gray text-md m-2'
   const normalLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2'
 
   return (
@@ -23,7 +25,8 @@ const Sidebar = () => {
           </Link>
           <TooltipComponent content='Menu' position='BottomCenter'>
             <button onClick={() => {
-              console.log('close button')
+              console.log('close button');
+              setActiveMenu(false);
             }} className="text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:hidden">
               <MdOutlineCancel />
             </button>
