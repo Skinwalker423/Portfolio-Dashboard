@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
@@ -40,7 +40,7 @@ export const App = () => {
         <div className='flex relative dark:bg-main-dark-bg'>
           <div className='fixed right-4 bottom-4' style={{zindex: '1000'}}>
             <TooltipComponent content='Settings' position='Top'>
-                <button onClick={() => console.log('clicked')} type='button' className='text-3xl p-3 hover:drop-shadow-xl' style={{background: 'blue', borderRadius: '50%'}}>
+                <button onClick={() => console.log('clicked')} type='button' className='text-3xl p-3 hover:drop-shadow-xl' style={{background: 'grey', borderRadius: '50%'}}>
                   <FiSettings />
                 </button>
             </TooltipComponent>
