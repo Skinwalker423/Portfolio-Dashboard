@@ -11,16 +11,63 @@ import {Cart, Chat, Notification, UserProfile} from '../../components';
 
 import { useStateContext } from '../../contexts/ContextProvide';
 
-const Navbar = () => {
+const NavButton = ({title, customFunc, icon, color}) => {
   return (
-    <div>
-      <TooltipComponent>
-          <BsChatLeft />
-          <MdKeyboardArrowDown />
-          <AiOutlineMenu  />
-          <RiNavigationLine />
-          <FiShoppingCart/>
-      </TooltipComponent>
+    <TooltipComponent content={title} position='BottomCenter'>
+      <buton className='relative text-xl rounded-full p-3 hover:bg-light-gray' type="button" style={{color}} onClick={customFunc}>{icon}</buton>
+    </TooltipComponent>
+  )
+}
+
+const Navbar = () => {
+
+  const {activeMenu, setActiveMenu} = useStateContext();
+
+  return (
+    <div className='flex justify-between p-2 md:mx-6 relative'>
+      <NavButton
+        title={'ChatLeft'}
+        customFunc={() => setActiveMenu(!activeMenu)}
+        icon={<BsChatLeft />}
+        color='blue'
+       />
+      <NavButton
+        title={'Menu'}
+        customFunc={() => setActiveMenu(!activeMenu)}
+        icon={<AiOutlineMenu  />}
+        color='grey'
+       />
+      <NavButton
+        title={'ChatLeft'}
+        customFunc={() => setActiveMenu(!activeMenu)}
+        icon={<BsChatLeft />}
+        color='blue'
+       />
+      <NavButton
+        title={'ChatLeft'}
+        customFunc={() => setActiveMenu(!activeMenu)}
+        icon={<BsChatLeft />}
+        color='blue'
+       />
+      <NavButton
+        title={'ChatLeft'}
+        customFunc={() => setActiveMenu(!activeMenu)}
+        icon={<BsChatLeft />}
+        color='blue'
+       />
+      <NavButton
+        title={'ChatLeft'}
+        customFunc={() => setActiveMenu(!activeMenu)}
+        icon={<BsChatLeft />}
+        color='blue'
+       />
+      <NavButton
+        title={'ChatLeft'}
+        customFunc={() => setActiveMenu(!activeMenu)}
+        icon={<BsChatLeft />}
+        color='blue'
+       />
+      
     </div>
   )
 }
