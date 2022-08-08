@@ -15,16 +15,24 @@ import { useStateContext } from '../../contexts/ContextProvide';
 const NavButton = ({title, customFunc, icon, color, dotColor}) => {
   return (
     <TooltipComponent content={title} position='BottomCenter'>
-      <buton className='relative text-xl rounded-full p-3 hover:bg-light-gray' type="button" style={{color}} onClick={customFunc}>
+      <button className='relative text-xl rounded-full p-3 hover:bg-light-gray' type="button" style={{color}} onClick={customFunc}>
         <span style={{background: dotColor}} className='absolute inline-flex rounded-full h-2 w-2 right-2 top-2'>{icon}</span>
-      </buton>
+      </button>
     </TooltipComponent>
   )
 }
 
 const Navbar = () => {
 
-  const {activeMenu, setActiveMenu, isClicked, setIsClicked, handleClicked} = useStateContext();
+  const {activeMenu, setActiveMenu, isClicked, setIsClicked, handleClicked, screenSize} = useStateContext();
+
+  useEffect(() => {
+      if(screenSize < 900){
+        setActiveMenu(false)
+      } else {
+        setActiveMenu(true)
+      }
+  }, [screenSize])
 
 
   return (
@@ -70,7 +78,7 @@ const Navbar = () => {
         <div className='flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg'>
           <img className='rounded-full w-8 h-8' src={avatar} alt={'avatar'} />
           <p>
-            <span className='text-gray-400 text-14'>Hi, </span> {'  '}
+            <span className='text-gray-400 text-14'>Hi,{screenSize} </span> {'  '}
             <span className='text-gray-400 font-bold ml-1 text-14'>Michael </span>
           </p>
           <MdKeyboardArrowDown onClick={() => handleClicked('userProfile')} className='text-gray-400 text-14' />

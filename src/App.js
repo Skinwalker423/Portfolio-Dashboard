@@ -33,7 +33,8 @@ import './App.css';
 
 export const App = () => {
 
-  const {activeMenu} = useStateContext();
+  const {activeMenu, setActiveMenu, screenSize} = useStateContext();
+
 
   return (
     <div>
