@@ -16,8 +16,14 @@ export function useStateContext(){
 export const StateProvider = ({children}) => {
 
     const [activeMenu, setActiveMenu] = useState(true);
+    const [isClicked, setIsClicked] = useState(initialState);
 
-    const value = {activeMenu, setActiveMenu}
+    const handleClicked = (clicked) => {
+        return setIsClicked({...initialState, [clicked]: true})
+    }
+
+
+    const value = {activeMenu, setActiveMenu, isClicked, setIsClicked, handleClicked}
 
     return(
         <StateContext.Provider value={value}>{children}</StateContext.Provider>
