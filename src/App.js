@@ -56,7 +56,7 @@ export const App = () => {
               <div className='fixed md:static bg-main-bg dark:bg-main-dark-bg w-full'>
                 <Navbar />
               </div>
-             </div>
+             
              <div>
               <Routes>
                 {/* Dashboard */}
@@ -85,10 +85,10 @@ export const App = () => {
                 <Route path='/stacked' element={<Stacked />} />
               </Routes>
              </div>
+          </div>
         </div>
       </BrowserRouter>
     </div>
-    
   )
 }
 
