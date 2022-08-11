@@ -8,12 +8,12 @@ const SparkLineChart = ({currentColor, data, color, width, height, type, id }) =
       height={height}
       width={width}
       lineWidth={1}
-      valueType='Numeric'
+      valueType="Numeric"
       fill={color}
       border={{color: currentColor, width: 2}}
       dataSource={data}
-      xName='x'
-      yName='yval'
+      xName="x"
+      yName="yval"
       type={type}
       tooltipSettings={{
         visible: true,
@@ -21,6 +21,11 @@ const SparkLineChart = ({currentColor, data, color, width, height, type, id }) =
         trackLineSettings: {
           visible: true
         }
+      }}
+      markerSettings={{
+        visible: ['All'],
+        size: 2.5,
+        fill: currentColor
       }}
     >
       <Inject services={[SparklineTooltip]} />
