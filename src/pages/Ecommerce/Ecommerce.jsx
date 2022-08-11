@@ -34,7 +34,6 @@ const Ecommerce = () => {
         </div>
         <div className='flex m-3 flex-wrap justify-center gap-1 items-center'>
           {earningData.map(({icon, title, amount, iconColor, iconBg, percentage, pcColor}) => {
-            console.log(pcColor)
             return (
               <div className='bg-white dark:text-gray-200 dark:bg-secondary-dark-bg md:w-54 p-4 pt-9 rounded-2xl' key={title}>
                 <button className='hover:drop-shadow-xl text-2xl opacity-0.9 rounded-full p-4' style={{color: iconColor, backgroundColor: iconBg}}>{icon}</button>

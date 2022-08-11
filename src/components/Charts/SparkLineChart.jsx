@@ -1,5 +1,5 @@
 import React from 'react';
-import { SparklineComponent, Inject, SparklineTooltip, Sparkline } from '@syncfusion/ej2-react-charts';
+import { SparklineComponent, Inject, SparklineTooltip} from '@syncfusion/ej2-react-charts';
 
 const SparkLineChart = ({currentColor, data, color, width, height, type, id }) => {
   return (
@@ -7,12 +7,20 @@ const SparkLineChart = ({currentColor, data, color, width, height, type, id }) =
       id={id}
       height={height}
       width={width}
-      LineWidth={1}
+      lineWidth={1}
       valueType='Numeric'
       fill={color}
       border={{color: currentColor, width: 2}}
+      dataSource={data}
+      xName='x'
+      yName='yval'
+      type={type}
+      tooltipSettings={{
+        visible: true,
+        format: '${x} : data ${yval}'
+      }}
     >
-
+      <Inject services={[SparklineTooltip]} />
     </SparklineComponent>
   )
 }
